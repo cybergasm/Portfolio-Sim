@@ -5,3 +5,4 @@
 .metadata
 target/
 test-classes/
+gwt-unitCache/
