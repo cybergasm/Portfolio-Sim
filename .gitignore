@@ -6,3 +6,5 @@
 target/
 test-classes/
 gwt-unitCache/
+src/main/webapp/classes/
+src/main/webapp/lib/
