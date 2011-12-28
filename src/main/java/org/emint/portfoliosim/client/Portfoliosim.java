@@ -1,12 +1,13 @@
 package org.emint.portfoliosim.client;
 
-import org.emint.portfoliosim.client.data.StockData;
 import org.emint.portfoliosim.client.data.StockDataService;
 import org.emint.portfoliosim.client.data.StockDataServiceAsync;
 import org.emint.portfoliosim.client.portfolio.PortfolioController;
 import org.emint.portfoliosim.client.portfolio.PortfolioControllerImpl;
 import org.emint.portfoliosim.client.portfolio.PortfolioView;
 import org.emint.portfoliosim.client.portfolio.PortfolioViewImpl;
+import org.emint.portfoliosim.shared.data.StockData;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;

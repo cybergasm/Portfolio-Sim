@@ -1,7 +1,7 @@
 package org.emint.portfoliosim.server.data;
 
-import org.emint.portfoliosim.client.data.StockData;
 import org.emint.portfoliosim.client.data.StockDataService;
+import org.emint.portfoliosim.shared.data.StockData;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 

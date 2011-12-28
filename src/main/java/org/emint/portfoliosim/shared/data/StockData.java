@@ -1,4 +1,4 @@
-package org.emint.portfoliosim.client.data;
+package org.emint.portfoliosim.shared.data;
 
 import java.io.Serializable;
 
