@@ -6,7 +6,15 @@
          xmlns="http://java.sun.com/xml/ns/javaee">
 
   <!-- Servlets -->
+  <servlet>
+    <servlet-name>stockDataServiceImpl</servlet-name>
+    <servlet-class>org.emint.portfoliosim.server.data.StockDataServiceImpl</servlet-class>
+  </servlet>
 
+  <servlet-mapping>
+    <servlet-name>stockDataServiceImpl</servlet-name>
+    <url-pattern>/portfoliosim/stockData</url-pattern>
+  </servlet-mapping>
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>Portfoliosim.html</welcome-file>
