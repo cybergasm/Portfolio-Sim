@@ -1,6 +1,8 @@
-package org.emint.portfoliosim.server.data;
+package org.emint.portfoliosim.server.service;
 
 import org.emint.portfoliosim.client.data.StockDataService;
+import org.emint.portfoliosim.server.data.StockDataRepository;
+import org.emint.portfoliosim.server.data.StockDataRepositoryImpl;
 import org.emint.portfoliosim.server.utils.HTTPUrlDataReader;
 import org.emint.portfoliosim.server.utils.URLDataReader;
 import org.emint.portfoliosim.shared.data.StockData;
@@ -12,13 +14,11 @@ public class StockDataServiceImpl extends RemoteServiceServlet implements
 
   private static final long serialVersionUID = 1L;
 
+  private StockDataRepository dataRepo = new StockDataRepositoryImpl(new HTTPUrlDataReader());
+  
   @Override
   public StockData getData(String symbol) {
-    StockData datum = new StockData();
-    datum.setName("MyOrg");
-    datum.setSymbol("MO");
-    datum.setPrice(1.2);
-    return datum;
+    return dataRepo.getStock(symbol);
   }
 
 }

@@ -27,7 +27,7 @@ public class Portfoliosim implements EntryPoint {
   final private PortfolioView view = new PortfolioViewImpl();
   final private PortfolioController controller = new PortfolioControllerImpl(view);
   
-  private StockDataServiceAsync stockDataSvc = GWT.create(StockDataService.class);
+ 
   /**
    * This is the entry point method.
    */
@@ -41,20 +41,6 @@ public class Portfoliosim implements EntryPoint {
     
     RootPanel.get("portfolio").add(view.getView());
     
-    AsyncCallback<StockData> callback = new AsyncCallback<StockData>() {
-
-      @Override
-      public void onFailure(Throwable arg0) {
-        view.setErrorMessage("Error connecting to service");
-      }
-
-      @Override
-      public void onSuccess(StockData data) {
-        view.setSuccessMessage(data.getName()+" "+data.getSymbol()+" "+data.getPrice());
-        
-      }
-    };
     
-    stockDataSvc.getData("SYMBOL", callback);
   }
 }
