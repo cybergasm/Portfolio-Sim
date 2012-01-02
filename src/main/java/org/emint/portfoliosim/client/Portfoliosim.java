@@ -25,23 +25,23 @@ public class Portfoliosim implements EntryPoint {
    */
 
   final private PortfolioView view = new PortfolioViewImpl();
-  private StockDataServiceAsync stockDataSvc = GWT.create(StockDataService.class);
-  final private PortfolioController controller = new PortfolioControllerImpl(view, stockDataSvc);
-  
- 
+  private StockDataServiceAsync stockDataSvc = GWT
+      .create(StockDataService.class);
+  final private PortfolioController controller = new PortfolioControllerImpl(
+      view, stockDataSvc);
+
   /**
    * This is the entry point method.
    */
   public void onModuleLoad() {
     view.onAddHandler(new ClickHandler() {
-      
+
       public void onClick(ClickEvent arg0) {
         controller.addStock(view.getStock());
       }
     });
-    
+
     RootPanel.get("portfolio").add(view.getView());
-    
-    
+
   }
 }

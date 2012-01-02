@@ -1,6 +1,4 @@
 /** Add css rules here for your application. */
-
-
 /** Example rules used by the template application (remove for your app) */
 h1 {
   font-size: 2em;
@@ -28,7 +26,20 @@ h1 {
   color: red;
 }
 
-/** Set ids using widget.getElement().setId("idOfElement") */
-#closeButton {
-  margin: 15px 6px 6px;
+.portfolioHeader {
+  background-color: #F59B1D;
+  color:white;
+}
+
+.portfolioTable {
+  border-collapse: collapse;
+}
+.portfolioTable tr td {
+  border: 1px solid #F59B1D;
+  color:white;
+}
+
+
+body {
+  background-color: #38393B;
 }
