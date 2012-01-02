@@ -9,19 +9,19 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public class PortfolioControllerImpl implements PortfolioController{
   
-  private PortfolioView view;
-  private StockDataServiceAsync stockDataSvc = GWT.create(StockDataService.class);
+  private final PortfolioView view;
+  private final StockDataServiceAsync stockDataSvc;
   
-  public PortfolioControllerImpl(PortfolioView view){
+  public PortfolioControllerImpl(PortfolioView view, StockDataServiceAsync stockDataService){
     this.view = view;
+    stockDataSvc = stockDataService;
   }
-  
+ 
   public void addStock(String symbol) {
     if(!symbol.matches("^[0-9A-Z\\.]{1,10}")) {
       view.setErrorMessage("Symbol is not valid");
     } else {
       retrieveDataAndPopulate(symbol);
-      view.setSuccessMessage("Symbol added succesfully!");
     }
   }
 
@@ -36,6 +36,7 @@ public class PortfolioControllerImpl implements PortfolioController{
       @Override
       public void onSuccess(StockData data) {
         view.addStock(data);
+        view.setSuccessMessage("Symbol added succesfully!");
       }
     };
     

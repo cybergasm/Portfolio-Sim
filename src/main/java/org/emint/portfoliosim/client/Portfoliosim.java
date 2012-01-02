@@ -25,7 +25,8 @@ public class Portfoliosim implements EntryPoint {
    */
 
   final private PortfolioView view = new PortfolioViewImpl();
-  final private PortfolioController controller = new PortfolioControllerImpl(view);
+  private StockDataServiceAsync stockDataSvc = GWT.create(StockDataService.class);
+  final private PortfolioController controller = new PortfolioControllerImpl(view, stockDataSvc);
   
  
   /**
