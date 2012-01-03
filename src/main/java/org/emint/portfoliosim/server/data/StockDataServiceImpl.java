@@ -1,8 +1,6 @@
-package org.emint.portfoliosim.server.service;
+package org.emint.portfoliosim.server.data;
 
 import org.emint.portfoliosim.client.data.StockDataService;
-import org.emint.portfoliosim.server.data.StockDataRepository;
-import org.emint.portfoliosim.server.data.StockDataRepositoryImpl;
 import org.emint.portfoliosim.server.utils.HTTPUrlDataReader;
 import org.emint.portfoliosim.server.utils.URLDataReader;
 import org.emint.portfoliosim.shared.data.StockData;

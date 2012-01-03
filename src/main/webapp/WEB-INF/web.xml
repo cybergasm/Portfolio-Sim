@@ -8,7 +8,7 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>stockDataServiceImpl</servlet-name>
-    <servlet-class>org.emint.portfoliosim.server.service.StockDataServiceImpl</servlet-class>
+    <servlet-class>org.emint.portfoliosim.server.data.StockDataServiceImpl</servlet-class>
   </servlet>
 
   <servlet-mapping>
@@ -16,6 +16,17 @@
     <url-pattern>/portfoliosim/stockData</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>userInfoService</servlet-name>
+    <servlet-class>org.emint.portfoliosim.server.auth.UserInfoServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>userInfoService</servlet-name>
+    <url-pattern>/portfoliosim/userInfo</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Security -->
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>all</web-resource-name>

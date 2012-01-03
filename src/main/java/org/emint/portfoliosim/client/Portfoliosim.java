@@ -1,11 +1,14 @@
 package org.emint.portfoliosim.client;
 
+import org.emint.portfoliosim.client.auth.UserInfoService;
+import org.emint.portfoliosim.client.auth.UserInfoServiceAsync;
 import org.emint.portfoliosim.client.data.StockDataService;
 import org.emint.portfoliosim.client.data.StockDataServiceAsync;
 import org.emint.portfoliosim.client.portfolio.PortfolioController;
 import org.emint.portfoliosim.client.portfolio.PortfolioControllerImpl;
 import org.emint.portfoliosim.client.portfolio.PortfolioView;
 import org.emint.portfoliosim.client.portfolio.PortfolioViewImpl;
+import org.emint.portfoliosim.shared.data.LoggedInUser;
 import org.emint.portfoliosim.shared.data.StockData;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -34,6 +37,29 @@ public class Portfoliosim implements EntryPoint {
    * This is the entry point method.
    */
   public void onModuleLoad() {
+    UserInfoServiceAsync userInfoService = GWT.create(UserInfoService.class);
+    
+    userInfoService.getCurrentUser(new AsyncCallback<LoggedInUser>() {
+
+      @Override
+      public void onFailure(Throwable arg0) {
+        view.setErrorMessage("Could not connect to user service.");
+      }
+
+      @Override
+      public void onSuccess(LoggedInUser user) {
+        if (user == null){
+          view.setErrorMessage("Logged in user not found!");
+        } else {
+          view.setSuccessMessage("Welcome "+user.getUserName());
+          loadPortfolio();
+        }
+
+      }
+    });
+  }
+  
+  void loadPortfolio() {
     view.onAddHandler(new ClickHandler() {
 
       public void onClick(ClickEvent arg0) {
@@ -42,6 +68,5 @@ public class Portfoliosim implements EntryPoint {
     });
 
     RootPanel.get("portfolio").add(view.getView());
-
   }
 }
