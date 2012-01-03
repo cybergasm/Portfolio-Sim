@@ -15,9 +15,16 @@
     <servlet-name>stockDataServiceImpl</servlet-name>
     <url-pattern>/portfoliosim/stockData</url-pattern>
   </servlet-mapping>
-  <!-- Default page to serve -->
-  <welcome-file-list>
-    <welcome-file>Portfoliosim.html</welcome-file>
-  </welcome-file-list>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>all</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>*</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
 
 </web-app>
